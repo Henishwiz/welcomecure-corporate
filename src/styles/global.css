@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'Amiko-Bold';
-  src: url('../public/fonts/Amiko-Bold.ttf');
+  src: url('/fonts/Amiko-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: bold;
 }
