@@ -1017,7 +1017,7 @@ const queries = (client) => {
 
 const client = createClient({ url: "http://localhost:4001/graphql", token: "fbcbb5a48c41ff08dd6199f4633e24a88de2ef8e", queries });
 
-const $$Astro = createAstro("https://welcomecure.com");
+const $$Astro = createAstro("https://welcomecure-corporate.vercel.app");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Layout;

@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /
-Sitemap: https://welcomecure.com/sitemap-index.xml
+Sitemap: https://welcomecure-corporate.vercel.app/sitemap-index.xml

@@ -8,18 +8,20 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 import robotsTxt from 'astro-robots-txt';
-import vercelAdapter from '@astrojs/vercel';
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://welcomecure.com',
+    site: 'https://welcomecure-corporate.vercel.app',
     output: "server",
-    adapter: vercelAdapter(),
-    integrations: [react(),
-    sitemap({ filter: (page) => page !== '/404' }),
-    robotsTxt({
-        sitemap: true,
-        policy: [{ userAgent: '*', disallow: '/' }],
-    })],
+    adapter: vercel({}),
+    integrations: [
+        react(),
+        sitemap({ filter: (page) => page !== '/404' }),
+        robotsTxt({
+            sitemap: true,
+            policy: [{ userAgent: '*', disallow: '/' }],
+        })],
     vite: { plugins: [tailwindcss()] }
 });
