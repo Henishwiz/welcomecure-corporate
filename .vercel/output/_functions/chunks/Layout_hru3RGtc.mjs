@@ -1015,7 +1015,13 @@ const queries = (client) => {
   return getSdk(requester);
 };
 
-const client = createClient({ url: `https://content.tinajs.io/${process.env.TINA_CLIENT_ID}`, token: process.env.TINA_TOKEN, queries });
+const TINA_URL = "https://content.tinajs.io/cb6ed5a0-840a-4bb0-b6e4-e7ef7658bcf2/graphql";
+const TINA_TOKEN = "fbcbb5a48c41ff08dd6199f4633e24a88de2ef8e";
+const client = createClient({
+  url: TINA_URL,
+  token: TINA_TOKEN,
+  queries
+});
 
 const $$Astro = createAstro("https://welcomecure-corporate.vercel.app");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
