@@ -1015,7 +1015,7 @@ const queries = (client) => {
   return getSdk(requester);
 };
 
-const client = createClient({ url: "http://localhost:4001/graphql", token: "fbcbb5a48c41ff08dd6199f4633e24a88de2ef8e", queries });
+const client = createClient({ url: `https://content.tinajs.io/${process.env.TINA_CLIENT_ID}`, token: process.env.TINA_TOKEN, queries });
 
 const $$Astro = createAstro("https://welcomecure-corporate.vercel.app");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
