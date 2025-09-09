@@ -1,6 +1,6 @@
 import { e as createAstro, f as createComponent, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_jaHnMHI2.mjs';
 import 'kleur/colors';
-import { I as Images, c as client, $ as $$Layout } from '../chunks/Layout_hru3RGtc.mjs';
+import { I as Images, c as client, $ as $$Layout } from '../chunks/Layout_DGn9Bxid.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 export { renderers } from '../renderers.mjs';
 
@@ -174,7 +174,7 @@ const Organizations = ({ organizations }) => {
   ] });
 };
 
-const $$Astro = createAstro("https://welcomecure-corporate.vercel.app");
+const $$Astro = createAstro("https://welcomecure-corporate.com");
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Index;

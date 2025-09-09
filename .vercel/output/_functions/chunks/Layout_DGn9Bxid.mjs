@@ -1023,7 +1023,7 @@ const client = createClient({
   queries
 });
 
-const $$Astro = createAstro("https://welcomecure-corporate.vercel.app");
+const $$Astro = createAstro("https://welcomecure-corporate.com");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Layout;
