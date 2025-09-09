@@ -9,12 +9,12 @@ import sitemap from '@astrojs/sitemap';
 
 import robotsTxt from 'astro-robots-txt';
 
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://welcomecure-corporate.vercel.app',
-    output: "static",
+    output: "server",
     adapter: vercel({}),
     integrations: [
         react(),
