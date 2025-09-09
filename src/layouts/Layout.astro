@@ -2,8 +2,9 @@
 import "../styles/global.css";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-const { title = "Jewellery OS — Landing", description = "Jewellery landing page" } = Astro.props;
 import { client } from "../../tina/__generated__/client";
+
+const { seoFile = "home.md" } = Astro.props;
 
 const headerRes = await client.queries.header({
   relativePath: "header.md",
@@ -13,8 +14,18 @@ const footerRes = await client.queries.footer({
 	relativePath: "footer.md",
 });
 
+const seoRes = await client.queries.seo({
+	relativePath: seoFile 
+});
+
 const headerData = headerRes.data.header;
 const footerData = footerRes.data.footer;
+const seo = seoRes.data.seo;
+
+const title = seo?.title;
+const description = seo?.description;
+const og = seo?.openGraph;
+const twitter = seo?.twitter;
 ---
 
 <!doctype html>
@@ -24,7 +35,27 @@ const footerData = footerRes.data.footer;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		{og && (
+			<>
+				<meta property="og:title" content={og.ogTitle} />
+				<meta property="og:description" content={og.ogDescription} />
+				{og.ogImage && <meta property="og:image" content={og.ogImage} />}
+			</>
+		)}
+
+		{twitter && (
+			<>
+				<meta name="twitter:title" content={twitter.twitterTitle} />
+				<meta name="twitter:description" content={twitter.twitterDescription} />
+				{twitter.twitterImage && (
+					<meta name="twitter:image" content={twitter.twitterImage} />
+				)}
+			</>
+		)}
 	</head>
 	<body>
 	    <Header data={headerData}/>

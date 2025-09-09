@@ -338,6 +338,36 @@ export default defineConfig({
                         ]
                     }
                 ]
+            },
+            {
+                name: "seo",
+                label: "SEO",
+                path: "content/seo",
+                format: "md",
+                fields: [
+                    { type: "string", name: "title", label: "Meta Title" },
+                    { type: "string", name: "description", label: "Meta Description" },
+                    {
+                        type: "object",
+                        name: "openGraph",
+                        label: "Open Graph",
+                        fields: [
+                            { type: "string", name: "ogTitle", label: "OG Title" },
+                            { type: "string", name: "ogDescription", label: "OG Description" },
+                            { type: "image", name: "ogImage", label: "OG Image" },
+                        ],
+                    },
+                    {
+                        type: "object",
+                        name: "twitter",
+                        label: "Twitter Card",
+                        fields: [
+                            { type: "string", name: "twitterTitle", label: "Twitter Title" },
+                            { type: "string", name: "twitterDescription", label: "Twitter Description" },
+                            { type: "image", name: "twitterImage", label: "Twitter Image" },
+                        ],
+                    },
+                ],
             }
         ],
     },

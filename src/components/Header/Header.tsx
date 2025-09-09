@@ -26,15 +26,17 @@ const Header = ({ data }: { data: any }) => {
                 <ul className="hidden lg:flex gap-x-[30px] items-center font-normal text-base text-black">
 
                 <li>
-                        <img
-                            src={Images.LOGO.src}
-                            alt="Logo"
-                            className="w-[107px] h-[35px]"
-                        />
+                        <a href="/">
+                            <img
+                                src={Images.LOGO.src}
+                                alt="Logo"
+                                className="w-[107px] h-[35px]"
+                            />
+                        </a>
                     </li>
                     {data.menuItems.map((item: any, idx: any) => (
                         <li key={idx} className="relative group cursor-pointer">
-                            <div className="flex items-center gap-1">
+                            <a href={item.url} className="flex items-center gap-1">
                                 {item.label}
                                 {item.subItems?.length > 0 && (
                                     <img
@@ -43,7 +45,7 @@ const Header = ({ data }: { data: any }) => {
                                         className="w-2 h-2 transition-transform duration-300 group-hover:rotate-180"
                                     />
                                 )}
-                            </div>
+                            </a>
 
                             {item.subItems?.length > 0 && (
                                 <ul className="absolute z-10 left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
