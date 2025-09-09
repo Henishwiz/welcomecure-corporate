@@ -3,6 +3,18 @@ import "../styles/global.css";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 const { title = "Jewellery OS — Landing", description = "Jewellery landing page" } = Astro.props;
+import { client } from "../../tina/__generated__/client";
+
+const headerRes = await client.queries.header({
+  relativePath: "header.md",
+});
+
+const footerRes = await client.queries.footer({
+	relativePath: "footer.md",
+});
+
+const headerData = headerRes.data.header;
+const footerData = footerRes.data.footer;
 ---
 
 <!doctype html>
@@ -15,9 +27,9 @@ const { title = "Jewellery OS — Landing", description = "Jewellery landing pag
 		<title>Astro Basics</title>
 	</head>
 	<body>
-	<Header />
-		<slot />
-	<Footer />
+	    <Header data={headerData}/>
+		    <slot />
+	    <Footer data={footerData}/>
 	</body>
 </html>
 

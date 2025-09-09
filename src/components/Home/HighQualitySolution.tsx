@@ -1,40 +1,30 @@
 import { Images } from '../../constants'
 
-const solutions = [
-    {
-        title: 'Public Health',
-        subtitle: 'Reduce stress and build resilience for medical professionals.',
-        image: Images.HIGH_QUALITY_SOLUTION1.src
-    },
-    {
-        title: 'Insurance',
-        subtitle: 'Lower stress and enhance focus for teams handling high-pressure client needs.',
-        image: Images.HIGH_QUALITY_SOLUTION2.src
-    },
-    {
-        title: 'Travel & Hospitality',
-        subtitle: 'Boost energy, reduce stress, and empower staff to deliver exceptional guest experiences.',
-        image: Images.HIGH_QUALITY_SOLUTION3.src
-    },
-]
-
-const HighQualitySolution = () => {
+const HighQualitySolution = ({ data }: { data: any }) => {
+    if (!data) return null;
     return (
         <section className='bg-[#FAE00633] py-[91px] mt-[100px]'>
             <section className='xl:container xl:mx-auto px-2.5'>
-                <h2 className='text-[40px] font-bold text-center text-black mb-[50px] leading-none Amiko-Bold'>High-quality solutions for these Industries</h2>
+                <h2 className='text-[40px] font-bold text-center text-black mb-[50px] leading-none Amiko-Bold'>{data.title}</h2>
 
-                <div className='grid grid-cols-12 gap-5'>
-                    {solutions.map((solution, index) => (
-                        <section key={index} className='rounded-[10px] overflow-hidden bg-white hover:bg-[#FDF39B] cursor-pointer col-span-4'>
-                            <img src={solution.image} alt="Public Health" className='w-full h-[395px] object-cover' />
-                            <div className='flex flex-col p-5'>
-                                <h3 className='text-xl font-semibold text-black mb-[15px] leading-none'>{solution.title}</h3>
-                                <p className='text-lg font-normal text-[#4E545F] leading-none'>{solution.subtitle}</p>
+                <section className="grid grid-cols-12 gap-5">
+                    {data?.solutions.map((solution:any, index:number) => (
+                        <section key={index} className="col-span-4 rounded-[10px] overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
+                            <div className="curve-border">
+                                <div className="curve-inner">
+                                    <img src={solution.image} alt="Public Health" className='w-[413px]'/>
+                                </div>
+                            </div>
+                            <div className="flex flex-col p-5">
+                                <div className="flex items-center group-hover:justify-between gap-x-2.5 mb-[15px]">
+                                    <h3 className="text-lg font-medium text-black leading-none">{solution.title}</h3>
+                                    <img src={Images.ARROW_BLACK.src} alt="Arrow" className="w-5 h-2 transform transition-transform duration-300 group-hover:translate-x-2" />
+                                </div>
+                                <p className="text-lg font-normal text-[#4E545F]">{solution.subtitle}</p>
                             </div>
                         </section>
                     ))}
-                </div>
+                </section>
             </section>
         </section>
     )

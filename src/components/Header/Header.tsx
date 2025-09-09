@@ -3,15 +3,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Images } from "../../constants";
 import { Fragment, useState } from "react";
 
-const Header = () => {
+const Header = ({ data }: { data: any }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="bg-white py-[17px] fixed top-0 z-30 right-0 left-0">
+        <header className="bg-white py-[17px] fixed top-0 z-30 right-0 left-0 shadow-md">
             <section className="xl:container xl:mx-auto px-2.5 flex justify-between items-center">
                 {/* Mobile logo */}
                 <img
-                    src={Images.LOGO.src}
+                    src={data?.logo}
                     alt="Logo"
                     className="w-[107px] h-[35px] lg:hidden"
                 />
@@ -24,70 +24,53 @@ const Header = () => {
 
                 {/* Desktop menu */}
                 <ul className="hidden lg:flex gap-x-[30px] items-center font-normal text-base text-black">
-                    <li>
+
+                <li>
                         <img
                             src={Images.LOGO.src}
                             alt="Logo"
                             className="w-[107px] h-[35px]"
                         />
                     </li>
-                    <li>Products</li>
+                    {data.menuItems.map((item: any, idx: any) => (
+                        <li key={idx} className="relative group cursor-pointer">
+                            <div className="flex items-center gap-1">
+                                {item.label}
+                                {item.subItems?.length > 0 && (
+                                    <img
+                                        src={Images.ARROW.src}
+                                        alt="Arrow"
+                                        className="w-2 h-2 transition-transform duration-300 group-hover:rotate-180"
+                                    />
+                                )}
+                            </div>
 
-                    <li className="relative group cursor-pointer">
-                        <div className="flex items-center gap-1">
-                            Services
-                            <img
-                                src={Images.ARROW.src}
-                                alt="Arrow"
-                                className="w-2 h-2 transition-transform duration-300 group-hover:rotate-180"
-                            />
-                        </div>
-                        <ul className="absolute z-10 left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">
-                                Consulting
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">
-                                Implementation
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">
-                                Support
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li className="relative group cursor-pointer">
-                        <div className="flex items-center gap-1">
-                            Resources
-                            <img
-                                src={Images.ARROW.src}
-                                alt="Arrow"
-                                className="w-2 h-2 transition-transform duration-300 group-hover:rotate-180"
-                            />
-                        </div>
-                        <ul className="absolute z-10 left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">Blog</li>
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">
-                                Case Studies
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer">
-                                Whitepapers
-                            </li>
-                        </ul>
-                    </li>
-                    <li>About</li>
-                    <li>Contact Us</li>
+                            {item.subItems?.length > 0 && (
+                                <ul className="absolute z-10 left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
+                                    {item.subItems.map((sub: any, subIdx: any) => (
+                                        <li
+                                            key={subIdx}
+                                            className="px-4 py-2 hover:bg-gray-50 cursor-pointer"
+                                        >
+                                            <a href={sub.url}>{sub.label}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))}
                 </ul>
 
                 {/* Desktop buttons */}
                 <ul className="hidden lg:flex gap-x-2.5 items-center font-normal text-base text-black">
                     <li>
                         <button className="outline outline-[#FAE006] rounded-md p-2.5 leading-none">
-                            Log In
+                            {data.loginText}
                         </button>
                     </li>
                     <li>
                         <button className="bg-[#FAE006] rounded-md p-2.5 leading-none">
-                            Register
+                            {data.registerText}
                         </button>
                     </li>
                 </ul>
