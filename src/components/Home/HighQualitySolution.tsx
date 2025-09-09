@@ -7,9 +7,9 @@ const HighQualitySolution = ({ data }: { data: any }) => {
             <section className='xl:container xl:mx-auto px-2.5'>
                 <h2 className='text-[40px] font-bold text-center text-black mb-[50px] leading-none Amiko-Bold'>{data.title}</h2>
 
-                <section className="grid grid-cols-12 gap-5">
+                <section className="grid lg:grid-cols-12 gap-5">
                     {data?.solutions.map((solution:any, index:number) => (
-                        <section key={index} className="col-span-4 rounded-[10px] overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
+                        <section key={index} className="lg:col-span-4 rounded-[10px] overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
                             <div className="curve-border">
                                 <div className="curve-inner">
                                     <img src={solution.image} alt="Public Health" className='w-[413px]'/>

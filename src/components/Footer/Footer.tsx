@@ -14,11 +14,10 @@ const Footer = ({ data }: { data: any }) => {
                         <button className='bg-[#FAE006] rounded-md py-2.5 px-[15px] text-black leading-none'>Get Notified</button>
                     </section>
 
-
                     <section className='grid grid-cols-12 pt-[70px] pb-[79px] xl:container xl:mx-auto'>
-                        <ul className='col-span-5'>
-                            <li className='text-white text-base font-normal'>{data.contactInfo.email}</li>
-                            <li className='text-white text-base font-normal my-[34px]'>{data.contactInfo.phone}</li>
+                        <ul className='col-span-5 w-max'>
+                            <a href={`mailto:${data.contactInfo.email}`} className="w-max"><li className='text-white text-base font-normal'>{data.contactInfo.email}</li></a>
+                            <a href={`tel:${data.contactInfo.phone}`} className="w-max"><li className='text-white text-base font-normal my-[34px]'>{data.contactInfo.phone}</li></a>
                             <li className='flex items-center gap-x-2.5'>
                                 {data.socialLinks.map((social: any, index: any) => (
                                     <a key={index} href={social.url}>
