@@ -28,5 +28,20 @@ menuItems:
     url: /contact
 loginText: Log In
 registerText: Register
+contactInfo:
+  - label: 800-810-0661
+    url: 'tel:8008100661'
+    desktopIcon: /header/Phone.svg
+    mobileIcon: /header/Phone_Mobile.svg
+    flag: /header/USA.svg
+  - label: 800-810-0661
+    url: 'tel:8008100661'
+    desktopIcon: /header/Phone.svg
+    mobileIcon: /header/Phone_Mobile.svg
+    flag: /header/Universal.svg
+  - label: Email Us
+    url: 'mailto:info@welcomecure.com'
+    desktopIcon: /header/Mail.svg
+    mobileIcon: /header/Mail_Mobile.svg
 ---
 

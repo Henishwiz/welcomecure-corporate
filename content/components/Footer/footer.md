@@ -4,12 +4,12 @@ subheading: >-
   Get expert-backed advice on stress relief, healthy habits, and workplace
   wellbeing, straight to your inbox.
 socialLinks:
-  - icon: /footer/Vector (8).svg
+  - icon: /footer/facebook_white.svg
     url: 'https://facebook.com'
-  - icon: /footer/Group 18560.svg
+  - icon: /footer/linked_in_white.svg
     url: 'https://linkedin.com'
-  - icon: /footer/Vector (9).svg
-  - icon: /footer/Vector (10).svg
+  - icon: /footer/twiter_white.svg
+  - icon: /footer/instagram_white.svg
 emailPlaceholder: Enter your email
 newsletterButtonText: Get Notified
 contactInfo:
@@ -75,11 +75,11 @@ footerLinks:
       - label: Become an Affiliate
         url: /become-an-affiliate
 paymentMethods:
-  - icon: /footer/image 13.svg
-  - icon: /footer/image 14.svg
-  - icon: /footer/image 15.svg
-  - icon: /footer/image 16.svg
-  - icon: /footer/image 17.svg
+  - icon: /footer/visa.svg
+  - icon: /footer/master_card.svg
+  - icon: /footer/maestro.svg
+  - icon: /footer/american_express.svg
+  - icon: /footer/net_banking.svg
 copyright: Copyright © 2025 Welcome Cure Pvt. Ltd. | All Rights Reserved
 legalLinks:
   - label: Terms of Use

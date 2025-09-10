@@ -5,6 +5,7 @@ subtitle: >-
   boost productivity, and promote long-term health,  all backed by proven
   homeopathy expertise.
 backgroundImage: /Hero/Hero_Banner(439kb).png
+backgroundImageForMobile: /Hero/Hero_Banner_for_Mobile.png
 primaryCta: Talk to an Expert
 primaryCtaUrl: /contact
 secondaryCta: View our Solutions

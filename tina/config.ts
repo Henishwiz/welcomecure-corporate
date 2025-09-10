@@ -57,6 +57,19 @@ export default defineConfig({
                     },
                     { type: "string", name: "loginText", label: "Login Button Text" },
                     { type: "string", name: "registerText", label: "Register Button Text" },
+                    {
+                        type: "object",
+                        name: "contactInfo",
+                        label: "Contact Info",
+                        list: true,
+                        fields: [
+                            { type: "string", name: "label", label: "Label" },
+                            { type: "string", name: "url", label: "URL" },
+                            { type: "image", name: "desktopIcon", label: "Desktop Icon" },
+                            { type: "image", name: "mobileIcon", label: "Mobile Icon" },
+                            { type: "image", name: "flag", label: "Flag (optional)" },
+                        ],
+                    },
                 ],
             },
             {
@@ -71,6 +84,7 @@ export default defineConfig({
                     { type: "string", name: "title", label: "Title" },
                     { type: "string", name: "subtitle", label: "Subtitle" },
                     { type: "image", name: "backgroundImage", label: "Background Image" },
+                    { type: "image", name: "backgroundImageForMobile", label: "Background Image For Mobile" },
                     { type: "string", name: "primaryCta", label: "Primary Button Text" },
                     { type: "string", name: "primaryCtaUrl", label: "Primary Button URL" },
                     { type: "string", name: "secondaryCta", label: "Secondary Button Text" },
