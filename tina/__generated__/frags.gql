@@ -1,0 +1,171 @@
+fragment HeaderParts on Header {
+  __typename
+  logo
+  menuItems {
+    __typename
+    label
+    url
+    subItems {
+      __typename
+      label
+      url
+    }
+  }
+  loginText
+  registerText
+  contactInfo {
+    __typename
+    label
+    url
+    desktopIcon
+    mobileIcon
+    flag
+  }
+}
+
+fragment HeroParts on Hero {
+  __typename
+  title
+  subtitle
+  backgroundImage
+  backgroundImageForMobile
+  primaryCta
+  primaryCtaUrl
+  secondaryCta
+  secondaryCtaUrl
+}
+
+fragment OrganizationsParts on Organizations {
+  __typename
+  title
+  logos {
+    __typename
+    src
+  }
+}
+
+fragment OurSolutionsParts on OurSolutions {
+  __typename
+  title
+  leftSolutions {
+    __typename
+    title
+    backgroundImage
+    highlight
+  }
+  rightImage
+  solutionsList {
+    __typename
+    label
+  }
+  ctaText
+}
+
+fragment TrustedByParts on TrustedBy {
+  __typename
+  title
+  stats {
+    __typename
+    title
+    subtitle
+  }
+  reviews {
+    __typename
+    review
+    name
+    position
+  }
+}
+
+fragment HighQualitySolutionsParts on HighQualitySolutions {
+  __typename
+  title
+  solutions {
+    __typename
+    image
+    title
+    subtitle
+  }
+}
+
+fragment WhyWelcomecureParts on WhyWelcomecure {
+  __typename
+  title
+  subtitle
+  image
+  ctaText
+  features {
+    __typename
+    icon
+    text
+  }
+}
+
+fragment CaseStudiesParts on CaseStudies {
+  __typename
+  title
+  subtitle
+  items {
+    __typename
+    image
+    title
+    description
+    publishDate
+    publishBy
+  }
+}
+
+fragment FooterParts on Footer {
+  __typename
+  heading
+  subheading
+  socialLinks {
+    __typename
+    icon
+    url
+  }
+  emailPlaceholder
+  newsletterButtonText
+  contactInfo {
+    __typename
+    email
+    phone
+  }
+  footerLinks {
+    __typename
+    title
+    links {
+      __typename
+      label
+      url
+    }
+  }
+  paymentMethods {
+    __typename
+    icon
+  }
+  copyright
+  legalLinks {
+    __typename
+    label
+    url
+  }
+}
+
+fragment SeoParts on Seo {
+  __typename
+  title
+  description
+  openGraph {
+    __typename
+    ogTitle
+    ogDescription
+    ogImage
+  }
+  twitter {
+    __typename
+    twitterTitle
+    twitterDescription
+    twitterImage
+  }
+}
