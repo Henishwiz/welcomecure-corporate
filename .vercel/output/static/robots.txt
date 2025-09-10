@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://welcomecure-corporate.com/sitemap-index.xml
