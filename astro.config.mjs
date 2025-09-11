@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 import robotsTxt from 'astro-robots-txt';
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
     site: 'https://welcomecure-corporate.vercel.app',
