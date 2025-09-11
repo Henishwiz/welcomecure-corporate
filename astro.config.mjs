@@ -8,11 +8,11 @@ import sitemap from '@astrojs/sitemap';
 
 import robotsTxt from 'astro-robots-txt';
 
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
-    site: 'https://welcomecure-corporate.com',
-    output: "static",
+    site: 'https://welcomecure-corporate.vercel.app',
+    output: "server",
     adapter: vercel(),
     integrations: [
         react(),
