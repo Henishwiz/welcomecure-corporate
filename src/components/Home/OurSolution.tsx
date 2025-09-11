@@ -29,7 +29,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
                     <img
                         src={ourSolutions.rightImage}
                         alt="Big Solution"
-                        className="h-[336px] lg:h-full w-full object-cover"
+                        className="h-[336px] md:h-full w-full object-cover"
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#FAE006] to-[#000000] opacity-50"></div>
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end items-start p-2.5 lg:p-5">

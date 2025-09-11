@@ -49,7 +49,7 @@ const Footer = ({ data }: { data: any }) => {
 
                     <section className='lg:border-t border-[#4E545F] py-2.5'>
                         <section className='xl:container xl:mx-auto flex flex-col lg:flex-row items-center justify-between gap-y-5 lg:gap-y-0'>
-                            <p className='order-2 lg:order-1 text-white text-base font-normal text-center lg:text-left'>100% Secure Payments<br />All major credit & debit cards accepted</p>
+                            <p className='order-2 lg:order-1 text-white text-base font-normal text-center lg:text-left w-full'>100% Secure Payments<br />All major credit & debit cards accepted</p>
                             <div className='order-1 lg:order-2 flex items-center justify-between sm:justify-center lg:justify-end sm:gap-x-2.5 w-full px-2.5'>
                                 {data.paymentMethods.map((paymentMethod: any, index: any) => (
                                     <img key={index} src={paymentMethod.icon} alt="Payment Method" className='object-cover' />
