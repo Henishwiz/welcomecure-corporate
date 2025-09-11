@@ -5,10 +5,10 @@ const branch =
     process.env.GITHUB_BRANCH ||
     process.env.VERCEL_GIT_COMMIT_REF ||
     process.env.HEAD ||
-    "main";
+    "henish_dev";
 
 export default defineConfig({
-    branch: "main",
+    branch: "henish_dev",
 
     // Get this from tina.io
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,

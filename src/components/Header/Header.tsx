@@ -115,12 +115,12 @@ const Header = ({ data }: { data: any }) => {
                     {/* Desktop buttons */}
                     <ul className="hidden lg:flex gap-x-2.5 items-center font-normal text-base text-black">
                         <li>
-                            <button className="outline outline-[#FAE006] hover:shadow-sm rounded-md p-2.5 leading-none transition-all duration-300">
+                            <button className="cursor-pointer outline outline-[#FAE006] hover:shadow-sm rounded-md p-2.5 leading-none transition-all duration-300">
                                 {data.loginText}
                             </button>
                         </li>
                         <li>
-                            <button className="bg-[#FAE006] hover:bg-[#FFF600] hover:shadow-sm rounded-md p-2.5 leading-none transition-all duration-300">
+                            <button className="cursor-pointer bg-[#FAE006] hover:bg-[#FFF600] hover:shadow-sm rounded-md p-2.5 leading-none transition-all duration-300">
                                 {data.registerText}
                             </button>
                         </li>
