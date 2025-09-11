@@ -1,5 +1,3 @@
-import { Images } from '../../constants'
-
 interface whyWelcomecure {
     title: string;
     subtitle: string;

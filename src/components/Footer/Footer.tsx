@@ -1,4 +1,49 @@
-const Footer = ({ data }: { data: any }) => {
+// types/footer.ts
+
+export interface SocialLink {
+    icon: string;
+    url: string;
+}
+
+export interface ContactInfo {
+    email: string;
+    phone: string;
+}
+
+export interface FooterSubLink {
+    label: string;
+    url: string;
+}
+
+export interface FooterLinkGroup {
+    title: string;
+    links: FooterSubLink[];
+}
+
+export interface PaymentMethod {
+    icon: string;
+}
+
+export interface LegalLink {
+    label: string;
+    url: string;
+}
+
+export interface FooterConfig {
+    heading: string;
+    subheading: string;
+    socialLinks: SocialLink[];
+    emailPlaceholder: string;
+    newsletterButtonText: string;
+    contactInfo: ContactInfo;
+    footerLinks: FooterLinkGroup[];
+    paymentMethods: PaymentMethod[];
+    copyright: string;
+    legalLinks: LegalLink[];
+}
+
+
+const Footer = ({ data }: { data: FooterConfig }) => {
     return (
         <section className='bg-[#FAE006]'>
             <footer className='bg-[#1A1A1A] relative clip-curve-bottom pt-[73px] lg:pt-[106px]'>
@@ -19,7 +64,7 @@ const Footer = ({ data }: { data: any }) => {
                             <a href={`mailto:${data.contactInfo.email}`} className="w-max"><li className='text-white text-base font-normal'>{data.contactInfo.email}</li></a>
                             <a href={`tel:${data.contactInfo.phone}`} className="w-max"><li className='text-white text-base font-normal my-[15px] lg:my-[34px]'>{data.contactInfo.phone}</li></a>
                             <li className='flex items-center gap-x-[30px]'>
-                                {data.socialLinks.map((social: any, index: any) => (
+                                {data.socialLinks.map((social: SocialLink, index: number) => (
                                     <a key={index} href={social.url}>
                                         <img key={index} src={social.icon} alt="Social Link" className='object-cover hover:stroke-[#FAE006] hover:fill-[#FAE006]' />
                                     </a>
@@ -28,11 +73,11 @@ const Footer = ({ data }: { data: any }) => {
                         </ul>
 
                         <section className='grid grid-cols-2 md:grid-cols-3 lg:col-span-7 gap-y-[30px] gap-x-[10px] lg:gap-[43px]'>
-                            {data.footerLinks.map((section: any, index: any) => (
+                            {data.footerLinks.map((section: FooterLinkGroup, index: number) => (
                                 <div key={index} className='col-span-1 text-start'>
                                     <h2 className='text-white opacity-80 text-base font-light mb-[15px] lg:mb-[25px]'>{section.title}</h2>
                                     <ul className='flex flex-col gap-y-2.5 lg:gap-y-[15px]'>
-                                        {section.links.map((link: any, index: any) => (
+                                        {section.links.map((link: FooterSubLink, index: number) => (
                                             <li key={index} className="text-white text-base font-normal">
                                                 {link.url ? (
                                                     <a href={link.url}>{link.label}</a>
@@ -51,7 +96,7 @@ const Footer = ({ data }: { data: any }) => {
                         <section className='xl:container xl:mx-auto flex flex-col lg:flex-row items-center justify-between gap-y-5 lg:gap-y-0'>
                             <p className='order-2 lg:order-1 text-white text-base font-normal text-center lg:text-left w-full px-2.5'>100% Secure Payments<br />All major credit & debit cards accepted</p>
                             <div className='order-1 lg:order-2 flex items-center justify-between sm:justify-center lg:justify-end sm:gap-x-2.5 w-full px-2.5'>
-                                {data.paymentMethods.map((paymentMethod: any, index: any) => (
+                                {data.paymentMethods.map((paymentMethod: PaymentMethod, index: number) => (
                                     <img key={index} src={paymentMethod.icon} alt="Payment Method" className='object-cover' />
                                 ))}
                             </div>
@@ -63,9 +108,9 @@ const Footer = ({ data }: { data: any }) => {
                     <section className='text-white text-base leading-[28px] font-normal border-y border-[#4E545F] py-2.5'>
                         <section className='xl:container xl:mx-auto flex flex-col lg:flex-row items-center justify-between'>
                             <p className='text-base font-normal text-white max-w-xs lg:max-w-none text-center px-2.5'>{data.copyright}</p>
-                            <hr className='w-full border-t border-[#4E545F] my-2.5 lg:hidden'/>
+                            <hr className='w-full border-t border-[#4E545F] my-2.5 lg:hidden' />
                             <p className='flex items-center gap-x-2.5 px-2.5'>
-                                {data.legalLinks.map((link: any, index: any) => (
+                                {data.legalLinks.map((link: LegalLink, index: number) => (
                                     <a key={index} href={link.url} className={`text-white text-base font-normal ${index !== data.legalLinks.length - 1 ? 'border-r border-[#4E545F] pr-2.5' : ''}`}>{link.label}</a>
                                 ))}
                             </p>

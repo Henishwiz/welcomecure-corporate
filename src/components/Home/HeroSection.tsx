@@ -1,5 +1,3 @@
-import { Images } from '../../constants'
-
 interface hero {
     title: string;
     subtitle: string;

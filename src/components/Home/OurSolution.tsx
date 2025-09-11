@@ -1,7 +1,26 @@
 import { Images } from "../../constants"
 
+// types/ourSolutions.ts
 
-const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
+export interface LeftSolution {
+    title: string;
+    highlight?: boolean;
+    backgroundImage?: string;
+}
+
+export interface SolutionItem {
+    label: string;
+}
+
+export interface OurSolutionsConfig {
+    title: string;
+    leftSolutions: LeftSolution[];
+    rightImage: string;
+    solutionsList: SolutionItem[];
+    ctaText: string;
+}
+
+const OurSolutions = ({ ourSolutions }: { ourSolutions: OurSolutionsConfig }) => {
     return (
         <section className="py-[70px] lg:py-[100px]">
             <h2 className="text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[50px] Amiko-Bold">
@@ -11,12 +30,12 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
             <div className="grid lg:grid-cols-12 gap-[15px] lg:gap-5 container mx-auto items-stretch px-2.5">
                 {/* left section */}
                 <div className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-[15px] lg:gap-5 h-full">
-                    {ourSolutions.leftSolutions?.map((item: any, i: number) => (
+                    {ourSolutions.leftSolutions?.map((item: LeftSolution, i: number) => (
                         <div
                             key={i}
                             className={`relative rounded-[10px] overflow-hidden aspect-[1/1] lg:aspect-auto flex flex-col justify-end items-start group ${item.highlight
-                                    ? "bg-[#FAE006] py-6 lg:py-[33px] pr-2.5 lg:pr-5"
-                                    : "h-full bg-cover bg-center hover:shadow-md"
+                                ? "bg-[#FAE006] py-6 lg:py-[33px] pr-2.5 lg:pr-5"
+                                : "h-full bg-cover bg-center hover:shadow-md"
                                 }`}
                             style={
                                 !item.highlight ? { backgroundImage: `url(${item.backgroundImage})` } : {}
@@ -46,7 +65,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#FAE006] to-[#000000] opacity-50"></div>
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end items-start p-2.5 lg:p-5">
                         <div className="flex flex-wrap gap-2.5">
-                            {ourSolutions.solutionsList.map((solution: any, index: number) => (
+                            {ourSolutions.solutionsList.map((solution: SolutionItem, index: number) => (
                                 <h3
                                     key={index}
                                     className="group flex items-center gap-x-2.5 text-white text-base lg:text-lg font-medium bg-[#0000004D] hover:bg-[#FAE006]/40 p-[5px] lg:p-[7px] rounded-[6px] lg:rounded-[12px] hover:outline hover:outline-[#FAE006] cursor-pointer"

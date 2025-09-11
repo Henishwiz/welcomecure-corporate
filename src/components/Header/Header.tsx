@@ -31,7 +31,7 @@ export interface HeaderData {
 }
 
 
-const Header = ({ data }: { data: any }) => {
+const Header = ({ data }: { data: HeaderData }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -43,7 +43,7 @@ const Header = ({ data }: { data: any }) => {
         <header className="fixed top-0 left-0 right-0 z-30 ">
             <section className="bg-[#1A1A1A] py-[6px] items-center justify-center w-full hidden lg:flex">
                 <ul className="flex items-center gap-x-5 text-xs text-white font-normal leading-none">
-                    {data?.contactInfo && data?.contactInfo?.map((item: any, idx: any) => (
+                    {data?.contactInfo && data?.contactInfo?.map((item: ContactInfoItem, idx: number) => (
                         <li key={idx}>
                             <a href={item.url} className={`flex items-center gap-x-2.5 ${item.url.startsWith("mailto:") ? "underline" : ""}`}>
                                 <span className="flex items-center gap-x-[5px]">
@@ -83,11 +83,11 @@ const Header = ({ data }: { data: any }) => {
                                 />
                             </a>
                         </li>
-                        {data.menuItems && data.menuItems.map((item: any, idx: any) => (
+                        {data.menuItems && data.menuItems.map((item, idx) => (
                             <li key={idx} className="relative group cursor-pointer">
                                 <a href={item.url} className="flex items-center gap-1">
                                     {item.label}
-                                    {item.subItems?.length > 0 && (
+                                    {item.subItems && item.subItems?.length > 0 && (
                                         <img
                                             src={Images.ARROW.src}
                                             alt="Arrow"
@@ -98,7 +98,7 @@ const Header = ({ data }: { data: any }) => {
 
                                 {item.subItems && item.subItems?.length > 0 && (
                                     <ul className="absolute z-10 left-0 top-full mt-2 w-48 bg-white shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 overflow-hidden">
-                                        {item.subItems.map((sub: any, subIdx: any) => (
+                                        {item.subItems.map((sub, subIdx) => (
                                             <li
                                                 key={subIdx}
                                                 className="px-4 py-2 hover:bg-gray-50 cursor-pointer"
@@ -152,7 +152,7 @@ const Header = ({ data }: { data: any }) => {
                                 </div>
 
                                 <ul className="flex flex-col space-y-[10px] font-medium text-[#4E545F]">
-                                    {data.menuItems.map((item: any, idx: any) => (
+                                    {data.menuItems.map((item, idx) => (
                                         <li key={idx} className="flex flex-col">
                                             <div
                                                 className="flex gap-x-2.5 items-center cursor-pointer py-2"
@@ -173,7 +173,7 @@ const Header = ({ data }: { data: any }) => {
                                                 }`}>
                                                 {item.subItems && openIndex === idx && (
                                                     <ul className="flex flex-col space-y-2 mt-1">
-                                                        {item.subItems.map((sub: any, subIdx: any) => (
+                                                        {item.subItems.map((sub, subIdx) => (
                                                             <li key={subIdx}>
                                                                 <a href={sub.url} className="text-sm text-gray-700">
                                                                     {sub.label}
@@ -188,7 +188,7 @@ const Header = ({ data }: { data: any }) => {
                                 </ul>
 
                                 <ul className="flex flex-col gap-2 mt-5 text-base text-[#4E545F] font-normal leading-none">
-                                    {data?.contactInfo && data?.contactInfo?.map((item: any, idx: any) => (
+                                    {data?.contactInfo && data?.contactInfo?.map((item, idx) => (
                                         <li key={idx}>
                                             <a href={item.url} className={`flex items-center gap-x-2.5 p-2.5 bg-[#FAFAFA] rounded-[10px] ${item.url.startsWith("mailto:") ? "underline" : ""}`}>
                                                 <span className="flex items-center gap-x-[5px]">
