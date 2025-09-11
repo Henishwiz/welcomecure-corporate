@@ -13,14 +13,32 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
                 <div className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-[15px] lg:gap-5 h-full">
                     {ourSolutions.leftSolutions?.map((item: any, i: number) => (
                         <div
-                            key={i}
-                            className={`rounded-[10px] overflow-hidden aspect-[1/1] lg:aspect-auto flex flex-col justify-end items-start ${item.highlight ? "bg-[#FAE006] py-6 lg:py-[33px] pr-2.5 lg:pr-5" : "h-full bg-cover bg-center"}`}
-                            style={!item.highlight ? { backgroundImage: `url(${item.backgroundImage})` } : {}}>
-                            <h3 className={`text-base lg:text-lg font-semibold px-[5px] lg:px-[13px] ${item.highlight ? "text-black pb-2" : "text-white py-6 lg:py-[33px]"}`}>
-                                {item.title}
-                            </h3>
-                            {item.highlight && <p className="border-b border-black h-[1px] w-full" />}
-                        </div>
+                        key={i}
+                        className={`relative rounded-[10px] overflow-hidden aspect-[1/1] lg:aspect-auto flex flex-col justify-end items-start group ${
+                          item.highlight
+                            ? "bg-[#FAE006] py-6 lg:py-[33px] pr-2.5 lg:pr-5"
+                            : "h-full bg-cover bg-center"
+                        }`}
+                        style={
+                          !item.highlight ? { backgroundImage: `url(${item.backgroundImage})` } : {}
+                        }
+                      >
+                        {/* Hover gradient overlay */}
+                        {!item.highlight && (
+                          <div className="absolute inset-0 bg-gradient-to-b from-[#66666600]/70 to-[#1A1A1A]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        )}
+                      
+                        <h3
+                          className={`relative z-10 text-base lg:text-lg font-semibold px-[5px] lg:px-[13px] ${
+                            item.highlight ? "text-black pb-2" : "text-white py-6 lg:py-[33px]"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
+                      
+                        {item.highlight && <p className="border-b border-black h-[1px] w-full" />}
+                      </div>
+                      
                     ))}
                 </div>
 
