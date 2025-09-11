@@ -40,7 +40,7 @@ const Header = ({ data }: { data: any }) => {
     };
 
     return (
-        <header className="fixed top-0 z-30 right-0 left-0">
+        <header className="fixed top-0 left-0 right-0 z-30 ">
             <section className="bg-[#1A1A1A] py-[6px] items-center justify-center w-full hidden lg:flex">
                 <ul className="flex items-center gap-x-5 text-xs text-white font-normal leading-none">
                     {data?.contactInfo && data?.contactInfo?.map((item: any, idx: any) => (
@@ -56,8 +56,8 @@ const Header = ({ data }: { data: any }) => {
                     ))}
                 </ul>
             </section>
-            <section className="bg-white py-[17px] shadow-md">
-                <section className="container mx-auto px-2.5 flex justify-between items-center">
+            <section className="bg-white shadow-md">
+                <section className="container mx-auto px-2.5 py-[17px] flex justify-between items-center">
                     {/* Mobile logo */}
                     <img
                         src={data?.logo}

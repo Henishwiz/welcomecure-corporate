@@ -9,7 +9,9 @@ socialLinks:
   - icon: /footer/linked_in_white.svg
     url: 'https://linkedin.com'
   - icon: /footer/twiter_white.svg
+    url: 'https://twitter.com'
   - icon: /footer/instagram_white.svg
+    url: 'https:instagram.com'
 emailPlaceholder: Enter your email
 newsletterButtonText: Get Notified
 contactInfo:

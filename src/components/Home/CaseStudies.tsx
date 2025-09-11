@@ -20,9 +20,9 @@ const CaseStudies = ({ title, subtitle, items }: CaseStudiesProps) => {
             <h2 className='text-2xl lg:text-[40px] font-bold text-center text-black mb-5 Amiko-Bold'>{title}</h2>
             <p className='text-base lg:text-lg font-medium text-[#4E545F] text-center max-w-[566px] mx-auto mb-[50px] lg:mb-[50px] leading-none'>{subtitle}</p>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 container mx-auto">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 lg:gap-5 container mx-auto">
                 {items.map((caseStudy: any, index: any) => (
-                    <section key={index} className="rounded-[10px] overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
+                    <section key={index} className="rounded-[10px] sm:max-w-[361px] md:max-w-none sm:mx-auto lg:mx-0 overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
                         <div className="curve-border">
                             <img src={caseStudy.image} alt={caseStudy.title} className="w-full curve-inner object-cover h-[315px] lg:h-[255px] xl:h-[395px]" />
                         </div>
