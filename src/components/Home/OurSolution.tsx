@@ -29,7 +29,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
                     <img
                         src={ourSolutions.rightImage}
                         alt="Big Solution"
-                        className="h-full w-full object-cover"
+                        className="h-[336px] lg:h-full w-full object-cover"
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#FAE006] to-[#000000] opacity-50"></div>
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end items-start p-2.5 lg:p-5">
@@ -37,7 +37,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
                             {ourSolutions.solutionsList.map((solution: any, index: number) => (
                                 <h3
                                     key={index}
-                                    className="group flex items-center gap-x-2.5 text-white text-base lg:text-lg font-medium bg-[#0000004D] hover:bg-[#FAE006]/40 p-[5px] lg:p-2.5 rounded-[12px] hover:outline hover:outline-[#FAE006] cursor-pointer"
+                                    className="group flex items-center gap-x-2.5 text-white text-base lg:text-lg font-medium bg-[#0000004D] hover:bg-[#FAE006]/40 p-[5px] lg:p-2.5 rounded-[6px] lg:rounded-[12px] hover:outline hover:outline-[#FAE006] cursor-pointer"
                                 >
                                     {solution.label}
                                     <img
@@ -51,7 +51,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: any }) => {
 
                         <hr className="w-full border-t border-white my-2.5 lg:my-[15px]" />
                         <div className="flex gap-x-2.5 items-center font-medium text-lg">
-                            <button className="bg-[#FAE006] cursor-pointer hover:bg-[#FFF600] hover:shadow-sm rounded-md py-2 px-5 text-black flex items-center gap-x-2.5 transition-all duration-300">
+                            <button className="bg-[#FAE006] cursor-pointer hover:bg-[#FFF600] hover:shadow-sm rounded-md py-1.5 px-5 text-black flex items-center gap-x-2.5 transition-all duration-300">
                                 {ourSolutions.ctaText}
                                 <img
                                     src={Images.ARROW_BLACK.src}

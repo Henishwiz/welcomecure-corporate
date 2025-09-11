@@ -151,7 +151,7 @@ const Header = ({ data }: { data: any }) => {
                                     />
                                 </div>
 
-                                <ul className="flex flex-col space-y-[10px] font-medium text-black">
+                                <ul className="flex flex-col space-y-[10px] font-medium text-[#4E545F]">
                                     {data.menuItems.map((item: any, idx: any) => (
                                         <li key={idx} className="flex flex-col">
                                             <div
@@ -169,17 +169,20 @@ const Header = ({ data }: { data: any }) => {
                                             </div>
 
                                             {/* Submenu */}
-                                            {item.subItems && openIndex === idx && (
-                                                <ul className="flex flex-col space-y-2 mt-1">
-                                                    {item.subItems.map((sub: any, subIdx: any) => (
-                                                        <li key={subIdx}>
-                                                            <a href={sub.url} className="text-sm text-gray-700">
-                                                                {sub.label}
-                                                            </a>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
+                                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? "max-h-40 opacity-100 mt-1" : "max-h-0 opacity-0"
+                                                }`}>
+                                                {item.subItems && openIndex === idx && (
+                                                    <ul className="flex flex-col space-y-2 mt-1">
+                                                        {item.subItems.map((sub: any, subIdx: any) => (
+                                                            <li key={subIdx}>
+                                                                <a href={sub.url} className="text-sm text-gray-700">
+                                                                    {sub.label}
+                                                                </a>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
                                         </li>
                                     ))}
                                 </ul>
