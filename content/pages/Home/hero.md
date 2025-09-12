@@ -1,5 +1,5 @@
 ---
-title: Empowering Corporate Wellne
+title: Empowering Corporate Wellness
 subtitle: >-
   Welcome Cure delivers tailored wellness solutions that reduce absenteeism,
   boost productivity, and promote long-term health,  all backed by proven
