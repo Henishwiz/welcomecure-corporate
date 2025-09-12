@@ -28,5 +28,8 @@
     "@tinacms/cli": "^1.10.2",
     "@types/node": "^24.3.1",
     "astro-robots-txt": "^1.0.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
