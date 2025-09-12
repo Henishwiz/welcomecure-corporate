@@ -1,6 +1,6 @@
 import { e as createAstro, f as createComponent, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_jaHnMHI2.mjs';
 import 'kleur/colors';
-import { I as Images, c as client, $ as $$Layout } from '../chunks/Layout_CzSsARRC.mjs';
+import { I as Images, c as client, $ as $$Layout } from '../chunks/Layout_CTEzFZZz.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 export { renderers } from '../renderers.mjs';
 

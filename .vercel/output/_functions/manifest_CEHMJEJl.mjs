@@ -1,0 +1,102 @@
+import 'kleur/colors';
+import { p as decodeKey } from './chunks/astro/server_jaHnMHI2.mjs';
+import 'clsx';
+import 'cookie';
+import { N as NOOP_MIDDLEWARE_FN } from './chunks/astro-designed-error-pages_CVH_7j29.mjs';
+import 'es-module-lexer';
+
+function sanitizeParams(params) {
+  return Object.fromEntries(
+    Object.entries(params).map(([key, value]) => {
+      if (typeof value === "string") {
+        return [key, value.normalize().replace(/#/g, "%23").replace(/\?/g, "%3F")];
+      }
+      return [key, value];
+    })
+  );
+}
+function getParameter(part, params) {
+  if (part.spread) {
+    return params[part.content.slice(3)] || "";
+  }
+  if (part.dynamic) {
+    if (!params[part.content]) {
+      throw new TypeError(`Missing parameter: ${part.content}`);
+    }
+    return params[part.content];
+  }
+  return part.content.normalize().replace(/\?/g, "%3F").replace(/#/g, "%23").replace(/%5B/g, "[").replace(/%5D/g, "]");
+}
+function getSegment(segment, params) {
+  const segmentPath = segment.map((part) => getParameter(part, params)).join("");
+  return segmentPath ? "/" + segmentPath : "";
+}
+function getRouteGenerator(segments, addTrailingSlash) {
+  return (params) => {
+    const sanitizedParams = sanitizeParams(params);
+    let trailing = "";
+    if (addTrailingSlash === "always" && segments.length) {
+      trailing = "/";
+    }
+    const path = segments.map((segment) => getSegment(segment, sanitizedParams)).join("") + trailing;
+    return path || "/";
+  };
+}
+
+function deserializeRouteData(rawRouteData) {
+  return {
+    route: rawRouteData.route,
+    type: rawRouteData.type,
+    pattern: new RegExp(rawRouteData.pattern),
+    params: rawRouteData.params,
+    component: rawRouteData.component,
+    generate: getRouteGenerator(rawRouteData.segments, rawRouteData._meta.trailingSlash),
+    pathname: rawRouteData.pathname || void 0,
+    segments: rawRouteData.segments,
+    prerender: rawRouteData.prerender,
+    redirect: rawRouteData.redirect,
+    redirectRoute: rawRouteData.redirectRoute ? deserializeRouteData(rawRouteData.redirectRoute) : void 0,
+    fallbackRoutes: rawRouteData.fallbackRoutes.map((fallback) => {
+      return deserializeRouteData(fallback);
+    }),
+    isIndex: rawRouteData.isIndex,
+    origin: rawRouteData.origin
+  };
+}
+
+function deserializeManifest(serializedManifest) {
+  const routes = [];
+  for (const serializedRoute of serializedManifest.routes) {
+    routes.push({
+      ...serializedRoute,
+      routeData: deserializeRouteData(serializedRoute.routeData)
+    });
+    const route = serializedRoute;
+    route.routeData = deserializeRouteData(serializedRoute.routeData);
+  }
+  const assets = new Set(serializedManifest.assets);
+  const componentMetadata = new Map(serializedManifest.componentMetadata);
+  const inlinedScripts = new Map(serializedManifest.inlinedScripts);
+  const clientDirectives = new Map(serializedManifest.clientDirectives);
+  const serverIslandNameMap = new Map(serializedManifest.serverIslandNameMap);
+  const key = decodeKey(serializedManifest.key);
+  return {
+    // in case user middleware exists, this no-op middleware will be reassigned (see plugin-ssr.ts)
+    middleware() {
+      return { onRequest: NOOP_MIDDLEWARE_FN };
+    },
+    ...serializedManifest,
+    assets,
+    componentMetadata,
+    inlinedScripts,
+    clientDirectives,
+    routes,
+    serverIslandNameMap,
+    key
+  };
+}
+
+const manifest = deserializeManifest({"hrefRoot":"file:///C:/Henish%20Work%20space/welcomecure-corporate/","cacheDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/node_modules/.astro/","outDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/dist/","srcDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/src/","publicDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/public/","buildClientDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/dist/client/","buildServerDir":"file:///C:/Henish%20Work%20space/welcomecure-corporate/dist/server/","adapterName":"@astrojs/vercel","routes":[{"file":"","links":[],"scripts":[],"styles":[],"routeData":{"type":"page","component":"_server-islands.astro","params":["name"],"segments":[[{"content":"_server-islands","dynamic":false,"spread":false}],[{"content":"name","dynamic":true,"spread":false}]],"pattern":"^\\/_server-islands\\/([^/]+?)\\/?$","prerender":false,"isIndex":false,"fallbackRoutes":[],"route":"/_server-islands/[name]","origin":"internal","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"styles":[],"routeData":{"type":"endpoint","isIndex":false,"route":"/_image","pattern":"^\\/_image\\/?$","segments":[[{"content":"_image","dynamic":false,"spread":false}]],"params":[],"component":"node_modules/astro/dist/assets/endpoint/generic.js","pathname":"/_image","prerender":false,"fallbackRoutes":[],"origin":"internal","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"styles":[{"type":"external","src":"/_astro/about.CG_asUsd.css"}],"routeData":{"route":"/about","isIndex":false,"type":"page","pattern":"^\\/about\\/?$","segments":[[{"content":"about","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/about.astro","pathname":"/about","prerender":false,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"styles":[],"routeData":{"route":"/robots.txt","isIndex":false,"type":"endpoint","pattern":"^\\/robots\\.txt\\/?$","segments":[[{"content":"robots.txt","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/robots.txt.ts","pathname":"/robots.txt","prerender":false,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"styles":[{"type":"external","src":"/_astro/about.CG_asUsd.css"}],"routeData":{"route":"/","isIndex":true,"type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","prerender":false,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}}],"site":"https://welcomecure-corporate.com","base":"/","trailingSlash":"ignore","compressHTML":true,"componentMetadata":[["C:/Henish Work space/welcomecure-corporate/src/pages/about.astro",{"propagation":"none","containsHead":true}],["C:/Henish Work space/welcomecure-corporate/src/pages/index.astro",{"propagation":"none","containsHead":true}]],"renderers":[],"clientDirectives":[["idle","(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value==\"object\"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};\"requestIdleCallback\"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event(\"astro:idle\"));})();"],["load","(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event(\"astro:load\"));})();"],["media","(()=>{var n=(a,t)=>{let i=async()=>{await(await a())()};if(t.value){let e=matchMedia(t.value);e.matches?i():e.addEventListener(\"change\",i,{once:!0})}};(self.Astro||(self.Astro={})).media=n;window.dispatchEvent(new Event(\"astro:media\"));})();"],["only","(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event(\"astro:only\"));})();"],["visible","(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value==\"object\"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event(\"astro:visible\"));})();"]],"entryModules":{"\u0000noop-middleware":"_noop-middleware.mjs","\u0000noop-actions":"_noop-actions.mjs","\u0000@astro-page:src/pages/about@_@astro":"pages/about.astro.mjs","\u0000@astro-page:src/pages/robots.txt@_@ts":"pages/robots.txt.astro.mjs","\u0000@astro-page:src/pages/index@_@astro":"pages/index.astro.mjs","\u0000@astrojs-ssr-virtual-entry":"entry.mjs","\u0000@astro-renderers":"renderers.mjs","\u0000@astro-page:node_modules/astro/dist/assets/endpoint/generic@_@js":"pages/_image.astro.mjs","\u0000@astrojs-ssr-adapter":"_@astrojs-ssr-adapter.mjs","\u0000@astrojs-manifest":"manifest_CEHMJEJl.mjs","C:/Henish Work space/welcomecure-corporate/node_modules/astro/dist/assets/services/sharp.js":"chunks/sharp_D96LqYe2.mjs","C:/Henish Work space/welcomecure-corporate/src/components/Header/Header":"_astro/Header.BMRx3N9M.js","@astrojs/react/client.js":"_astro/client.D7KB-5fr.js","astro:scripts/before-hydration.js":""},"inlinedScripts":[],"assets":["/_astro/Arrow.3s-Ehlq1.svg","/_astro/Arrow_Black.COwolmZO.svg","/_astro/Arrow_White.2prKQkdo.svg","/_astro/Logo.wlQeO7RU.svg","/_astro/about.CG_asUsd.css","/favicon.ico","/admin/index.html","/caseStudies/CaseStudies1.png","/caseStudies/CaseStudies2.png","/caseStudies/CaseStudies3.png","/fonts/Amiko-Bold.woff2","/footer/american_express.svg","/footer/facebook_white.svg","/footer/instagram_white.svg","/footer/linked_in_white.svg","/footer/maestro.svg","/footer/master_card.svg","/footer/net_banking.svg","/footer/twiter_white.svg","/footer/visa.svg","/header/Mail.svg","/header/Mail_Mobile.svg","/header/Phone.svg","/header/Phone_Mobile.svg","/header/Universal.svg","/header/USA.svg","/header/Welcome_Cure_Logo.svg","/Hero/Hero_Banner(1.37mb).png","/Hero/Hero_Banner(439kb).png","/Hero/Hero_Banner.png","/Hero/Hero_Banner_for_Mobile.png","/highQualitySolution/HighQualitySolution1.png","/highQualitySolution/highQualitySolution2.png","/highQualitySolution/HighQualitySolution3.jpg","/Our solutions/Our_Solutions1.svg","/Our solutions/Our_Solutions2.svg","/Our solutions/Our_Solutions3.svg","/Our solutions/Our_Solutions4.svg","/organizations/Organizations1.png","/organizations/Organizations10.png","/organizations/Organizations11.png","/organizations/Organizations12.png","/organizations/Organizations13.png","/organizations/Organizations14.png","/organizations/Organizations15.png","/organizations/Organizations16.png","/organizations/Organizations17.png","/organizations/Organizations18.png","/organizations/Organizations19.png","/organizations/Organizations2.png","/organizations/Organizations20.png","/organizations/Organizations3.png","/organizations/Organizations4.png","/organizations/Organizations5.jpeg","/organizations/Organizations6.png","/organizations/Organizations7.png","/organizations/Organizations8.png","/organizations/Organizations9.png","/whyWelcomecure/Image (37).svg","/whyWelcomecure/Vector1.svg","/whyWelcomecure/Vector2.svg","/whyWelcomecure/Vector3.svg","/whyWelcomecure/Vector4.svg","/_astro/client.D7KB-5fr.js","/_astro/Header.BMRx3N9M.js","/_astro/index.BDo4LcvF.js","/admin/assets/brace-fold.es-f2e3735d.js","/admin/assets/closebrackets.es-e969742b.js","/admin/assets/codemirror.es-52e8b92d.js","/admin/assets/codemirror.es2-5884f31a.js","/admin/assets/comment.es-39699bae.js","/admin/assets/dialog.es-dffe62e7.js","/admin/assets/dialog.es2-02b3b4e7.js","/admin/assets/foldgutter.es-b6cee46a.js","/admin/assets/forEachState.es-b2033c2b.js","/admin/assets/hint.es-23c2f293.js","/admin/assets/hint.es2-e4a00a82.js","/admin/assets/index-392b545a.js","/admin/assets/index-b381f381.js","/admin/assets/index-df8c5b58.css","/admin/assets/info-addon.es-c9b2027b.js","/admin/assets/info.es-e7834875.js","/admin/assets/javascript.es-3c6957c5.js","/admin/assets/jump-to-line.es-d901ea33.js","/admin/assets/jump.es-ef6acf23.js","/admin/assets/lint.es-fe7166bb.js","/admin/assets/lint.es2-308e7ad2.js","/admin/assets/lint.es3-f157bb7d.js","/admin/assets/matchbrackets.es-97d2e827.js","/admin/assets/matchbrackets.es2-f53f57e6.js","/admin/assets/mode-indent.es-057a4f6a.js","/admin/assets/mode.es-a0c57db8.js","/admin/assets/mode.es2-056276dd.js","/admin/assets/mode.es3-0b8cd612.js","/admin/assets/SchemaReference.es-27df3beb.js","/admin/assets/search.es-1c15f5ea.js","/admin/assets/searchcursor.es-b1a352a2.js","/admin/assets/searchcursor.es2-cbfe7cae.js","/admin/assets/show-hint.es-b981493e.js","/admin/assets/sublime.es-e2a3eb60.js"],"buildFormat":"directory","checkOrigin":true,"serverIslandNameMap":[],"key":"ulO1rTBgARunhAP0s0fiZDjLUS0de//VT6kcjuq5rUQ="});
+if (manifest.sessionConfig) manifest.sessionConfig.driverModule = null;
+
+export { manifest };
