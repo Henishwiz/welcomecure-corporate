@@ -1059,7 +1059,7 @@ const queries = (client) => {
   return getSdk(requester);
 };
 
-const client = createClient({ cacheDir: "C:/Henish Work space/welcomecure-corporate/tina/__generated__/.cache/1757683625315", url: "https://content.tinajs.io/1.6/content/cb6ed5a0-840a-4bb0-b6e4-e7ef7658bcf2/github/main", token: "fbcbb5a48c41ff08dd6199f4633e24a88de2ef8e", queries });
+const client = createClient({ cacheDir: "C:/Henish Work space/welcomecure-corporate/tina/__generated__/.cache/1757684300315", url: "https://content.tinajs.io/1.6/content/cb6ed5a0-840a-4bb0-b6e4-e7ef7658bcf2/github/main", token: "fbcbb5a48c41ff08dd6199f4633e24a88de2ef8e", queries });
 
 const $$Astro = createAstro("https://welcomecure-corporate.com");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
