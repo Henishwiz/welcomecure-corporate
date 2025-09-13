@@ -1,7 +1,8 @@
+'use client'
+import { useState } from "react";
 import { Images } from "../../constants"
 
 // types/ourSolutions.ts
-
 export interface LeftSolution {
     title: string;
     highlight?: boolean;
@@ -21,46 +22,59 @@ export interface OurSolutionsConfig {
 }
 
 const OurSolutions = ({ ourSolutions }: { ourSolutions: OurSolutionsConfig }) => {
+    const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
+    const currentRightImage =
+        selectedIndex !== null
+            ? ourSolutions.leftSolutions[selectedIndex].backgroundImage || ourSolutions.rightImage
+            : ourSolutions.rightImage;
+
     return (
-        <section className="py-[70px] lg:py-[100px] px-4">
-            <h2 className="text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[50px] Amiko-Bold">
+        <section className="py-[70px] lg:py-[100px]">
+            <h2 className="text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[50px] Amiko-Bold px-4">
                 {ourSolutions.title}
             </h2>
 
-            <div className="grid lg:grid-cols-12 gap-4 xl:gap-5 container mx-auto items-stretch">
+            <section className="grid lg:grid-cols-12 gap-4 xl:gap-5 container mx-auto px-4 items-stretch">
                 {/* left section */}
-                <div className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-4 xl:gap-5 h-full">
-                    {ourSolutions.leftSolutions?.map((item: LeftSolution, i: number) => (
-                        <div
-                            key={i}
-                            className={`relative rounded-[10px] overflow-hidden aspect-[1/1] lg:aspect-auto flex flex-col justify-end items-start group ${item.highlight
-                                ? "bg-[#FAE006] py-6 lg:py-[33px] pr-2.5 lg:pr-5"
-                                : "h-full bg-cover bg-center hover:shadow-md"
-                                }`}
-                            style={
-                                !item.highlight ? { backgroundImage: `url(${item.backgroundImage})` } : {}
-                            }
-                        >
-                            {/* Hover gradient overlay */}
-                            {!item.highlight && (
-                                <div className="absolute inset-0 bg-gradient-to-b from-[#66666600]/70 to-[#1A1A1A]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            )}
-
-                            <h3 className={`relative z-10 text-base lg:text-lg font-semibold px-[5px] lg:px-[13px] ${item.highlight ? "text-black pb-2" : "text-white py-6 lg:py-[33px]"}`}>
-                                {item.title}
-                            </h3>
-
-                            {item.highlight && <p className="border-b border-black h-[1px] w-full" />}
-                        </div>
-                    ))}
-                </div>
+                <section className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-4 xl:gap-5 h-full">
+                    {ourSolutions.leftSolutions?.map((item: LeftSolution, i: number) => {
+                        const isActive = selectedIndex === i;
+                        return (
+                            <section
+                                key={i}
+                                onClick={() => setSelectedIndex(i)}
+                                className={`relative overflow-hidden rounded-[12px] group cursor-pointer aspect-[1/1]
+                                    ${isActive ? "bg-[#FAE006] flex flex-col justify-center items-start" : "hover:shadow-md"}`}
+                            >
+                                {!isActive && (
+                                    <>
+                                        <img
+                                            src={item.backgroundImage}
+                                            alt={item.title}
+                                            className="h-full w-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-b from-[#66666600]/70 to-[#1A1A1A]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </>
+                                )}
+                                <div className="absolute z-10 bottom-4 lg:bottom-[28px] w-full pr-2.5 lg:pr-5">
+                                    <h3 className={`text-base lg:text-lg font-semibold px-2.5 lg:px-[13px] mb-1 lg:mb-2
+                                ${isActive ? "text-black" : "text-white"}`}>
+                                        {item.title}
+                                    </h3>
+                                    {isActive && <p className="w-full border-b border-black " />}
+                                </div>
+                            </section>
+                        );
+                    })}
+                </section>
 
                 {/* right section */}
-                <div className="order-1 lg:order-2 lg:col-span-7 relative overflow-hidden rounded-[10px] h-full">
+                <section className="order-1 lg:order-2 lg:col-span-7 relative overflow-hidden rounded-[12px] h-full">
                     <img
-                        src={ourSolutions.rightImage}
+                        src={currentRightImage}
                         alt="Big Solution"
-                        className="h-[336px] md:h-full w-full object-cover"
+                        className="h-[336px] md:min-h-[539px] lg:min-h-[400px] xl:min-h-full w-full object-cover"
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#FAE006] to-[#000000] opacity-50"></div>
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end items-start p-2.5 lg:p-5">
@@ -92,10 +106,10 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: OurSolutionsConfig }) =>
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </section>
         </section>
-    )
-}
+    );
+};
 
-export default OurSolutions
+export default OurSolutions;
