@@ -58,7 +58,7 @@ const OurSolutions = ({ ourSolutions }: { ourSolutions: OurSolutionsConfig }) =>
                                     </>
                                 )}
                                 <div className="absolute z-10 bottom-4 lg:bottom-[28px] w-full pr-2.5 lg:pr-5">
-                                    <h3 className={`text-base lg:text-lg font-semibold px-2.5 lg:px-[13px] mb-1 lg:mb-2
+                                    <h3 className={`text-sm lg:text-lg font-medium lg:font-semibold px-2.5 lg:px-[13px] mb-1 lg:mb-2
                                 ${isActive ? "text-black" : "text-white"}`}>
                                         {item.title}
                                     </h3>
