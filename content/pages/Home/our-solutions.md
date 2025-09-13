@@ -2,6 +2,7 @@
 title: Our solutions help people lead healthier lives
 leftSolutions:
   - title: Patients Solutions
+    backgroundImage: /Our%20solutions/Our_Solutions4.svg
     highlight: true
   - title: Healthcare Solutions
     backgroundImage: /Our%20solutions/Our_Solutions1.svg
