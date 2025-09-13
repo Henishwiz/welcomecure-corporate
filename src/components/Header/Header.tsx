@@ -57,7 +57,7 @@ const Header = ({ data }: { data: HeaderData }) => {
                 </ul>
             </section>
             <section className="bg-white shadow-md">
-                <section className="container mx-auto px-2.5 py-[17px] flex justify-between items-center">
+                <section className="container mx-auto px-4 py-[17px] flex justify-between items-center">
                     {/* Mobile logo */}
                     <img
                         src={data?.logo}
