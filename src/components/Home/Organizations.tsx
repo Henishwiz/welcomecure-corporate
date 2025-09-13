@@ -7,7 +7,7 @@ type organizations = {
 
 const Organizations = ({ organizations }: { organizations: organizations }) => {
     return (
-        <section className='pt-[70px] lg:pt-[88px] flex flex-col items-center container mx-auto px-2.5'>
+        <section className='pt-[70px] lg:pt-[88px] flex flex-col items-center container mx-auto px-4'>
             <h2 className='text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[50px] Amiko-Bold max-w-xl'>{organizations.title}</h2>
 
 

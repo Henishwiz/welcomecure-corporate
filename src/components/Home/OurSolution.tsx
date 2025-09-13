@@ -22,14 +22,14 @@ export interface OurSolutionsConfig {
 
 const OurSolutions = ({ ourSolutions }: { ourSolutions: OurSolutionsConfig }) => {
     return (
-        <section className="py-[70px] lg:py-[100px]">
+        <section className="py-[70px] lg:py-[100px] px-4">
             <h2 className="text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[50px] Amiko-Bold">
                 {ourSolutions.title}
             </h2>
 
-            <div className="grid lg:grid-cols-12 gap-[15px] lg:gap-5 container mx-auto items-stretch px-2.5">
+            <div className="grid lg:grid-cols-12 gap-4 xl:gap-5 container mx-auto items-stretch">
                 {/* left section */}
-                <div className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-[15px] lg:gap-5 h-full">
+                <div className="order-2 lg:order-1 lg:col-span-5 grid grid-cols-2 grid-rows-2 gap-4 xl:gap-5 h-full">
                     {ourSolutions.leftSolutions?.map((item: LeftSolution, i: number) => (
                         <div
                             key={i}

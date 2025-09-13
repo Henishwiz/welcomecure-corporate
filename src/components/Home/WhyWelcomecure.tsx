@@ -11,7 +11,7 @@ interface whyWelcomecure {
 
 const WhyWelcomecure = ({ data }: { data: whyWelcomecure }) => {
     return (
-        <section className='container mx-auto py-[70px] lg:py-[91px] px-2.5'>
+        <section className='container mx-auto py-[70px] lg:py-[91px] px-4'>
             <h2 className='text-2xl lg:text-[40px] font-bold text-center text-black mb-5 lg:mb-[13px] Amiko-Bold'>{data.title}</h2>
             <p className='text-base lg:text-lg font-medium text-[#4E545F] text-center max-w-[566px] mx-auto mb-[15px] lg:mb-[29px]'>{data.subtitle}</p>
 
