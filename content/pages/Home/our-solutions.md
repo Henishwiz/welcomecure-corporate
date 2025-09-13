@@ -9,7 +9,7 @@ leftSolutions:
   - title: Enterprise Solutions
     backgroundImage: /Our%20solutions/our_solutions3.png
   - title: Government Solutions
-    backgroundImage: /Our%20solutions/Our_Solutions2.svg
+    backgroundImage: /Our%20solutions/our_solutions4.png
 rightImage: ''
 solutionsList:
   - label: Stress management workshops
