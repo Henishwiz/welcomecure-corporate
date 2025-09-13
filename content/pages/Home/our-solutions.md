@@ -8,7 +8,7 @@ leftSolutions:
   - title: Enterprise Solutions
     backgroundImage: /our_solutions/our_solutions3.png
   - title: Government Solutions
-    backgroundImage: /our_solutions/our_solutions4.svg
+    backgroundImage: /our_solutions/our_solutions4.png
 solutionsList:
   - label: Stress management workshops
   - label: Online fitness challenges
