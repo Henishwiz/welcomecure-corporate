@@ -2,14 +2,13 @@
 title: Our solutions help people lead healthier lives
 leftSolutions:
   - title: Patients Solutions
-    highlight: true
+    backgroundImage: /our_solutions/our_solutions1.svg
   - title: Healthcare Solutions
-    backgroundImage: /Our%20solutions/Our_Solutions1.svg
+    backgroundImage: /our_solutions/our_solutions2.svg
   - title: Enterprise Solutions
-    backgroundImage: /Our%20solutions/Our_Solutions3.svg
+    backgroundImage: /our_solutions/our_solutions3.svg
   - title: Government Solutions
-    backgroundImage: /Our%20solutions/Our_Solutions2.svg
-rightImage: /Our%20solutions/Our_Solutions4.svg
+    backgroundImage: /our_solutions/our_solutions4.svg
 solutionsList:
   - label: Stress management workshops
   - label: Online fitness challenges

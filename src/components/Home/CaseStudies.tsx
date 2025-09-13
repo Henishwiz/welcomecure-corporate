@@ -16,11 +16,11 @@ interface CaseStudiesProps {
 
 const CaseStudies = ({ title, subtitle, items }: CaseStudiesProps) => {
     return (
-        <section className="bg-[#FAE006] py-[50px] lg:py-[88px] px-4">
-            <h2 className='text-2xl lg:text-[40px] font-bold text-center text-black mb-5 Amiko-Bold'>{title}</h2>
-            <p className='text-base lg:text-lg font-medium text-[#4E545F] text-center max-w-[566px] mx-auto mb-[50px] lg:mb-[50px] leading-none'>{subtitle}</p>
+        <section className="bg-[#FAE006] py-[50px] lg:py-[88px]">
+            <h2 className='text-2xl lg:text-[40px] font-bold text-center text-black mb-5 Amiko-Bold px-4'>{title}</h2>
+            <p className='text-base lg:text-lg font-medium text-[#4E545F] text-center max-w-[566px] mx-auto mb-[50px] lg:mb-[50px] leading-none px-4'>{subtitle}</p>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-5 container mx-auto">
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-5 container mx-auto px-4">
                 {items.map((caseStudy: any, index: any) => (
                     <section key={index} className="rounded-[10px] sm:max-w-[361px] md:max-w-none sm:mx-auto lg:mx-0 overflow-hidden bg-white group hover:bg-[#FDF39B] hover:shadow-md cursor-pointer transition-all duration-300">
                         <div className="curve-border">
