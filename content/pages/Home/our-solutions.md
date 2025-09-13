@@ -7,7 +7,7 @@ leftSolutions:
   - title: Healthcare Solutions
     backgroundImage: /Our%20solutions/our_solutions2.jpg
   - title: Enterprise Solutions
-    backgroundImage: /Our%20solutions/Our_Solutions3.svg
+    backgroundImage: /Our%20solutions/our_solutions3.png
   - title: Government Solutions
     backgroundImage: /Our%20solutions/Our_Solutions2.svg
 rightImage: ''
